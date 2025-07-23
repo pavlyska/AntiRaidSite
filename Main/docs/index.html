@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntiRaid Bot — Документация</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --space-orange: linear-gradient(135deg, #ff7e00 0%, #ff3c00 100%);
+            --space-dark: #0a0e17;
+            --space-light: #1a2138;
+            --discord-blurple: #5865F2;
+            --discord-dark: #36393F;
+            --discord-darker: #2F3136;
+            --discord-darkest: #202225;
+            --discord-text: #DCDDDE;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--space-dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .space-gradient {
+            background: var(--space-orange);
+        }
+
+        .space-card {
+            background: rgba(26, 33, 56, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .space-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 126, 0, 0.3);
+            border-color: rgba(255, 126, 0, 0.5);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: var(--opacity); }
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Command styles */
+        .command {
+            background: rgba(26, 33, 56, 0.7);
+            border-radius: 0.5rem;
+            border-left: 3px solid #ff7e00;
+            transition: all 0.3s ease;
+        }
+
+        .command:hover {
+            transform: translateX(5px);
+        }
+
+        .command-name {
+            color: #ff7e00;
+            font-weight: bold;
+        }
+
+        .command-usage {
+            background: rgba(255, 126, 0, 0.1);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            font-family: monospace;
+        }
+
+        .command-arg {
+            color: #ff7e00;
+        }
+
+        .command-optional {
+            color: #69F0AE;
+        }
+
+        /* Parameter table */
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .param-table th {
+            background: rgba(255, 126, 0, 0.2);
+            text-align: left;
+            padding: 0.75rem;
+        }
+
+        .param-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .param-table tr:hover td {
+            background: rgba(255, 126, 0, 0.05);
+        }
+
+        /* Code block */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        /* Sidebar navigation */
+        .doc-sidebar {
+            transition: all 0.3s ease;
+            position: sticky;
+            top: 1rem;
+            height: fit-content;
+        }
+
+        .doc-nav-item {
+            transition: all 0.3s ease;
+            position: relative;
+            will-change: transform, background, color;
+        }
+
+        .doc-nav-item:hover {
+            background: rgba(255, 126, 0, 0.1) !important;
+        }
+
+        .doc-nav-item.active {
+            background: rgba(255, 126, 0, 0.3) !important;
+            border-color: rgba(255, 126, 0, 0.6) !important;
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .doc-nav-item.active::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background: var(--space-orange);
+            border-radius: 2px;
+            box-shadow: 0 0 8px rgba(255, 126, 0, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .doc-container {
+                flex-direction: column;
+            }
+
+            .doc-sidebar {
+                width: 100%;
+                margin-bottom: 2rem;
+                position: relative;
+                top: 0;
+            }
+
+            .doc-content {
+                width: 100%;
+            }
+        }
+
+        .premium {
+            color: gold;
+            font-weight: bold;
+        }
+
+        /* New styles for better navigation */
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-section-title {
+            color: rgba(255, 165, 0, 0.8);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 126, 0, 0.1);
+            color: white;
+        }
+
+        .nav-link.active {
+            background: rgba(255, 126, 0, 0.3);
+            color: white;
+            font-weight: 500;
+        }
+
+        .nav-link i {
+            margin-right: 0.75rem;
+            font-size: 0.875rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+
+        /* Floating buttons */
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-btn-telegram {
+            background: #0088cc;
+        }
+
+        .floating-btn-discord {
+            background: #5865F2;
+        }
+
+        .floating-btn-add {
+            background: linear-gradient(135deg, #ff7e00 0%, #ff3c00 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Star Background -->
+    <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
+
+    <!-- Header -->
+    <header class="relative z-10">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-sm"></i>
+                    </div>
+                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">AntiRaid Bot</span>
+                </div>
+                <div>
+                    <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border border-orange-500 text-white hover:bg-orange-500/10 transition text-sm">
+                        <i class="fas fa-arrow-left mr-2"></i> На главную
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Documentation Content -->
+    <section class="relative z-10 py-8 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row doc-container">
+            <!-- Sidebar Navigation -->
+            <div class="doc-sidebar md:w-64 lg:w-72 pr-4">
+                <div class="bg-gray-800/80 backdrop-blur-lg rounded-2xl p-6 sticky top-6 border border-gray-700/50 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full space-gradient flex items-center justify-center mr-3">
+                            <i class="fas fa-book text-white text-sm"></i>
+                        </div>
+                        <h3 class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Навигация</h3>
+                    </div>
+
+                    <div class="nav-sections">
+                        <div class="nav-section">
+                            <div class="nav-section-title">Основное</div>
+                            <a href="#basic-info" class="nav-link active">
+                                <i class="fas fa-info-circle"></i>
+                                Основная информация
+                            </a>
+                            <a href="#commands" class="nav-link">
+                                <i class="fas fa-terminal"></i>
+                                Команды
+                            </a>
+                            <a href="#premium" class="nav-link">
+                                <i class="fas fa-crown"></i>
+                                Премиум-функции
+                            </a>
+                            <a href="#permissions" class="nav-link">
+                                <i class="fas fa-key"></i>
+                                Права бота
+                            </a>
+                        </div>
+
+                        <div class="nav-section">
+                            <div class="nav-section-title">Глобальные команды</div>
+                            <a href="#gban-commands" class="nav-link">
+                                <i class="fas fa-globe"></i>
+                                Глобальные блокировки
+                            </a>
+                        </div>
+
+                        <div class="nav-section">
+                            <div class="nav-section-title">Другое</div>
+                            <a href="#subscription" class="nav-link">
+                                <i class="fas fa-gem"></i>
+                                Премиум-подписка
+                            </a>
+                            <a href="#support" class="nav-link">
+                                <i class="fas fa-headset"></i>
+                                Сервер поддержки
+                            </a>
+                            <a href="#contact" class="nav-link">
+                                <i class="fas fa-envelope"></i>
+                                Связь с нами
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="doc-content md:w-3/4 lg:w-4/5">
+                <!-- Basic Info Section -->
+                <div id="basic-info" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Основная</span> информация
+                    </h2>
+                    <p class="text-gray-300"><strong>AntiRaid Bot</strong> — это мощный инструмент для защиты серверов от рейдов, спама и несанкционированных действий. Бот предлагает широкий набор функций, начиная от базовой защиты и заканчивая премиум-функциями, такими как заморозка каналов и расширенный черный список ролей.</p>
+                </div>
+
+                <!-- Commands Section -->
+                <div id="commands" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Команды</span> бота
+                    </h2>
+
+                    <div class="space-y-4">
+                        <!-- Raid Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/raid [on/off]</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Включить или выключить защиту от рейдов.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Бот должен иметь права:
+                                    <ul class="list-disc list-inside ml-4">
+                                        <li><code>manage_roles</code></li>
+                                        <li><code>view_audit_log</code></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Aban Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/aban &lt;target&gt;</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Полностью снять все роли у пользователя и заблокировать его.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Доступно только разрешенным ролям или владельцу сервера</li>
+                            </ul>
+                        </div>
+
+                        <!-- Aban Menu Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/aban_menu</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Открыть меню управления списком ролей, которые могут использовать <code>/aban</code>.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Только владелец сервера</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trusted Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/trusted</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Управление доверенными лицами (пользователи, которые могут управлять защитой и обходят ограничения).</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                            </ul>
+                        </div>
+
+                        <!-- Role Blacklist Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/role_blacklist</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Управление черным списком ролей, которые будут автоматически удаляться при появлении.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                            </ul>
+                        </div>
+
+                        <!-- Settings Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/settings</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Настройки защиты от рейдов.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                            </ul>
+                        </div>
+
+                        <!-- Status Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/status</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Проверить текущее состояние защиты.</p>
+                        </div>
+
+                        <!-- Ping Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/ping</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Проверить задержку и состояние бота.</p>
+                        </div>
+
+                        <!-- Freeze Mode Command -->
+                        <div class="command p-4 premium">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/freeze_mode</h3>
+                                <span class="text-xs text-gray-400">Премиум</span>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Настроить режим заморозки каналов (заблокировать отправку сообщений, подключение к голосовым комнатам и т.д.).</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Только для премиум-пользователей</li>
+                            </ul>
+                        </div>
+
+                        <!-- Help Command -->
+                        <div class="command p-4">
+                            <div class="flex flex-wrap items-baseline justify-between mb-2">
+                                <h3 class="command-name">/help</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Показать справочник по всем командам бота.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Ban Commands Section -->
+                <div id="gban-commands" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Глобальные</span> команды
+                    </h2>
+                    <p class="text-gray-300 mb-4">Команды для управления глобальными блокировками и синхронизацией между серверами.</p>
+
+                    <div class="space-y-4">
+                        <!-- GBan Menu Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/gban_menu</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Меню для настройки глобальных блокировок (/gban).</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Только владелец сервера</li>
+                            </ul>
+                        </div>
+
+                        <!-- GSync Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/gsync</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Подключение связки серверов для синхронизации глобальных блокировок.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Только владелец сервера</li>
+                            </ul>
+                        </div>
+
+                        <!-- GBan Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/gban &lt;user&gt; [reason]</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Глобальная блокировка пользователя на всех связанных серверах.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Доступно только разрешенным ролям или владельцу сервера</li>
+                                <li>Блокирует пользователя на всех серверах, подключенных через /gsync</li>
+                            </ul>
+                        </div>
+
+                        <!-- GUnban Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/gunban &lt;user&gt;</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Глобальная разблокировка пользователя на всех связанных серверах.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Доступно только разрешенным ролям или владельцу сервера</li>
+                                <li>Снимает блокировку со всех серверов, подключенных через /gsync</li>
+                            </ul>
+                        </div>
+
+                        <!-- GRole Copy Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/grole_copy &lt;role&gt;</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Копирование роли на другие связанные сервера.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                                <li>Создает аналогичную роль на всех серверах, подключенных через /gsync</li>
+                            </ul>
+                        </div>
+
+                        <!-- Role Clear Command -->
+                        <div class="command p-4">
+                            <div class="flex mb-2">
+                                <h3 class="command-name">/role_clear &lt;role&gt;</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm mb-3">Очистка роли для всех пользователей на сервере.</p>
+                            <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Features Section -->
+                <div id="premium" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Премиум</span> функции
+                    </h2>
+                    <ul class="text-gray-300 text-sm space-y-2 list-disc list-inside">
+                        <li>🔒 Режим заморозки каналов (<code>/freeze_mode</code>)</li>
+                        <li>🧶 Расширенный список ролей (до 10)</li>
+                        <li>🚀 Приоритетная поддержка</li>
+                    </ul>
+                </div>
+
+                <!-- Permissions Section -->
+                <div id="permissions" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Права</span> бота
+                    </h2>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Для полноценной работы AntiRaid Bot требуются следующие права:
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="param-table w-full">
+                            <thead>
+                                <tr>
+                                    <th>Право</th>
+                                    <th>Для чего нужно</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium"><code>manage_roles</code></td>
+                                    <td class="text-gray-300 text-sm">Управление ролями</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>manage_channels</code></td>
+                                    <td class="text-gray-300 text-sm">Управление каналами</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>view_audit_log</code></td>
+                                    <td class="text-gray-300 text-sm">Просмотр журнала аудита</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>send_messages</code></td>
+                                    <td class="text-gray-300 text-sm">Отправлять сообщения</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>embed_links</code></td>
+                                    <td class="text-gray-300 text-sm">Встраивать ссылки</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>use_application_commands</code></td>
+                                    <td class="text-gray-300 text-sm">Использовать команды приложений</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium"><code>ban_members</code></td>
+                                    <td class="text-gray-300 text-sm">Для глобальных блокировок</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subscription Section -->
+                <div id="subscription" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Премиум</span> подписка
+                    </h2>
+                    <p class="text-gray-300 text-sm mb-4">Чтобы получить доступ к премиум-функциям, необходимо оформить подписку:</p>
+                    <a href="https://boosty.to/pavlyska_" target="_blank" class="inline-flex items-center px-4 py-2 rounded-full space-gradient text-white hover:shadow-lg hover:shadow-orange-500/30 transition">
+                        <i class="fas fa-crown mr-2"></i> Boosty →
+                    </a>
+                </div>
+
+                <!-- Support Section -->
+                <div id="support" class="space-card rounded-xl p-6 mb-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Сервер</span> поддержки
+                    </h2>
+                    <p class="text-gray-300 text-sm mb-4">Если у вас возникли вопросы или проблемы, присоединяйтесь к нашему серверу поддержки:</p>
+                    <a href="https://discord.gg/t6d8u8JBuy" target="_blank" class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition">
+                        <i class="fab fa-discord mr-2"></i> Сервер поддержки AntiRaid Bot
+                    </a>
+                </div>
+
+                <!-- Contact Section -->
+                <div id="contact" class="space-card rounded-xl p-6">
+                    <h2 class="title-font text-2xl font-bold mb-4">
+                        <span class="bg-clip-text text-transparent space-gradient">Связь</span> с нами
+                    </h2>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>Discord: <code>pavlyska</code></li>
+                        <li>Email: <code>blixplatform@gmail.com</code></li>
+                    </ul>
+                </div>
+
+                <!-- Footer -->
+                <div class="mt-8 pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
+                    <p>© 2025 AntiRaid Bot. Все права защищены.<br/>Документация для версии: 1.6 • Разработчик: pavlyska</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
+        <a href="https://t.me/antiraiddiscord"
+            target="_blank"
+            class="floating-btn floating-btn-telegram"
+            title="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1376482498506391673&permissions=8&scope=bot%20applications.commands"
+            target="_blank"
+            class="floating-btn floating-btn-add"
+            title="Добавить бота">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+
+    <script>
+        // Create stars
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars-container');
+            const starsCount = 100;
+
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = 2 + Math.random() * 5;
+                const delay = Math.random() * 5;
+                const opacity = 0.1 + Math.random() * 0.9;
+
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--opacity', opacity);
+                star.style.animationDelay = `${delay}s`;
+                star.classList.add('star');
+
+                starsContainer.appendChild(star);
+            }
+
+            // Improved navigation highlighting
+            const sections = document.querySelectorAll('.doc-content > div[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Function to update active nav link
+            function updateActiveNav() {
+                let currentSection = '';
+
+                // Find which section is currently in view
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (window.scrollY >= sectionTop - 100 &&
+                        window.scrollY < sectionTop + sectionHeight - 100) {
+                        currentSection = section.id;
+                    }
+                });
+
+                // Update nav links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Set initial active state
+            updateActiveNav();
+
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveNav);
+
+            // Smooth scrolling for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active nav after scroll completes
+                        setTimeout(updateActiveNav, 1000);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
