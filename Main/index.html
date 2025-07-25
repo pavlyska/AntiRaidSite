@@ -495,19 +495,21 @@
     <!-- Star Background -->
     <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
 
-    <!-- Header -->
-    <header class="relative z-10">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-sm"></i>
-                    </div>
-                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
+<!-- Header -->
+<header class="relative z-10">
+    <nav class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-center">
+            <div class="flex items-center space-x-2">
+                <!-- Аватарка с увеличенным размером и свечением -->
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                    <img src="avatar.png" alt="Логотип" class="relative w-12 h-12 rounded-full object-cover border border-white/20">
                 </div>
+                <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Section -->
     <section class="relative z-10 pt-8 md:pt-16 pb-12 md:pb-20 px-4 section-padding">
@@ -866,11 +868,11 @@
                 <div class="news-card">
                     <div class="p-4 md:p-5">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-bold text-lg">Обновление сайта</h3>
+                            <h3 class="font-bold text-lg">Картиночки</h3>
                             <span class="news-date">23.07.2025</span>
                         </div>
                         <p class="text-gray-300 text-sm mb-4">
-                            Обновили ссылку на сервер поддержки.
+                            Добавили картинки на сайт
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs bg-red-500/10 text-red-400 px-2 py-1 rounded">ВАЖНО</span>
@@ -882,67 +884,69 @@
         </div>
     </section>
 
-    <!-- Support Server Section -->
-    <section id="support" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
-        <div class="container mx-auto">
-            <div class="text-center mb-8 md:mb-12">
-                <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
-                    <span class="bg-clip-text text-transparent space-gradient">Сервер</span> поддержки
-                </h2>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm">
-                    Получите помощь, задайте вопросы и предложите новые функции
-                </p>
-            </div>
+<!-- Support Server Section -->
+<section id="support" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
+    <div class="container mx-auto">
+        <div class="text-center mb-8 md:mb-12">
+            <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
+                <span class="bg-clip-text text-transparent space-gradient">Сервер</span> поддержки
+            </h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm">
+                Получите помощь, задайте вопросы и предложите новые функции
+            </p>
+        </div>
 
-            <div class="max-w-2xl mx-auto">
-                <div class="support-widget p-4 md:p-6">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 flex items-center justify-center mb-4 md:mb-0 md:mr-6">
-                            <i class="fab fa-discord text-white text-2xl md:text-3xl"></i>
-                        </div>
-                        <div class="flex-1 text-center md:text-left">
-                            <h3 class="font-bold text-lg md:text-xl mb-2">ANTIRAID COMMUNITY</h3>
-                            <p class="text-gray-300 text-sm mb-3">
-                                Официальный сервер поддержки, где вы можете получить помощь, сообщить о проблемах и обсудить новые функции бота.
-                            </p>
-                            <div class="member-count mb-3 md:mb-4">
-                                <span class="online-indicator"></span>
-                                <span>60+ участников</span>
-                            </div>
-                            <a href="https://dsc.gg/antiraidbot"
-                                class="inline-flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full discord-blurple text-white font-bold hover:shadow-lg hover:shadow-indigo-500/30 transition-all btn text-sm">
-                                <i class="fab fa-discord mr-2"></i> Присоединиться
-                            </a>
-                        </div>
+        <div class="max-w-2xl mx-auto">
+            <div class="support-widget p-4 md:p-6">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Аватарка с эффектом свечения -->
+                    <div class="relative mb-4 md:mb-0 md:mr-6">
+                        <div class="absolute -inset-1.5 md:-inset-2 rounded-full bg-orange-500/40 blur-sm"></div>
+                        <img src="avatar.png" alt="Аватарка сервера" class="relative w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-white/20">
                     </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="font-bold text-lg md:text-xl mb-2">ANTIRAID COMMUNITY</h3>
+                        <p class="text-gray-300 text-sm mb-3">
+                            Официальный сервер поддержки, где вы можете получить помощь, сообщить о проблемах и обсудить новые функции бота.
+                        </p>
+                        <div class="member-count mb-3 md:mb-4">
+                            <span class="online-indicator"></span>
+                            <span>60+ участников</span>
+                        </div>
+                        <a href="https://dsc.gg/antiraidbot"
+                            class="inline-flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full discord-blurple text-white font-bold hover:shadow-lg hover:shadow-indigo-500/30 transition-all btn text-sm">
+                            <i class="fab fa-discord mr-2"></i> Присоединиться
+                        </a>
+                    </div>
+                </div>
 
-                    <div class="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
-                            <div class="text-orange-400 mb-2">
-                                <i class="fas fa-question-circle text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-sm mb-1">FAQ</h4>
-                            <p class="text-gray-400 text-xs">Ответы на частые вопросы</p>
+                <div class="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                    <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
+                        <div class="text-orange-400 mb-2">
+                            <i class="fas fa-question-circle text-lg md:text-xl"></i>
                         </div>
-                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
-                            <div class="text-orange-400 mb-2">
-                                <i class="fas fa-bug text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-sm mb-1">Поддержка</h4>
-                            <p class="text-gray-400 text-xs">Система тикетов</p>
+                        <h4 class="font-bold text-sm mb-1">FAQ</h4>
+                        <p class="text-gray-400 text-xs">Ответы на частые вопросы</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
+                        <div class="text-orange-400 mb-2">
+                            <i class="fas fa-bug text-lg md:text-xl"></i>
                         </div>
-                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
-                            <div class="text-orange-400 mb-2">
-                                <i class="fas fa-lightbulb text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="font-bold text-sm mb-1">Идеи</h4>
-                            <p class="text-gray-400 text-xs">Предложите новые функции</p>
+                        <h4 class="font-bold text-sm mb-1">Поддержка</h4>
+                        <p class="text-gray-400 text-xs">Система тикетов</p>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
+                        <div class="text-orange-400 mb-2">
+                            <i class="fas fa-lightbulb text-lg md:text-xl"></i>
                         </div>
+                        <h4 class="font-bold text-sm mb-1">Идеи</h4>
+                        <p class="text-gray-400 text-xs">Предложите новые функции</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- FAQ Section -->
     <section id="faq" class="relative z-10 py-12 md:py-16 px-4 section-padding">
@@ -1046,41 +1050,45 @@
         </div>
     </section>
         
-    <!-- Footer -->
-    <footer class="relative z-10 pt-8 md:pt-12 pb-6 md:pb-8 px-4 bg-space-light">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-sm"></i>
-                    </div>
-                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
+<!-- Footer -->
+<footer class="relative z-10 pt-8 md:pt-12 pb-6 md:pb-8 px-4 bg-space-light">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8">
+            <!-- Логотип с аватаркой -->
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                    <img src="avatar.png" alt="Логотип" class="relative w-10 h-10 rounded-full object-cover border border-white/20">
                 </div>
-                                                                
-                <div class="flex flex-wrap gap-3 md:gap-4 justify-center footer-links">
-                    <a href="#" class="text-gray-400 hover:text-orange-400 transition">
-                        <i class="fab fa-discord text-lg"></i>
-                    </a>
-                    <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
-                        <i class="fab fa-telegram text-lg"></i>
-                    </a>
-                    <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition text-sm">
-                        Документация
-                    </a>
-                    <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition text-sm">
-                        Политика конфиденциальности
-                    </a>
-                    <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition text-sm">
-                        Условия использования
-                    </a>
-                </div>
+                <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
             </div>
-                                                            
-            <div class="pt-4 md:pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
-                <p> 2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
+
+            <!-- Ссылки в футере -->
+            <div class="flex flex-wrap gap-3 md:gap-4 justify-center footer-links">
+                <a href="#" class="text-gray-400 hover:text-orange-400 transition">
+                    <i class="fab fa-discord text-lg"></i>
+                </a>
+                <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
+                    <i class="fab fa-telegram text-lg"></i>
+                </a>
+                <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                    Документация
+                </a>
+                <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                    Политика конфиденциальности
+                </a>
+                <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                    Условия использования
+                </a>
             </div>
         </div>
-    </footer>
+
+        <!-- Копирайт -->
+        <div class="pt-4 md:pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
+            <p>2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Floating Action Buttons -->
     <div class="fixed bottom-4 right-4 z-50 flex flex-col space-y-3">
