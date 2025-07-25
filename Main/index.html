@@ -281,16 +281,95 @@
             margin-right: 5px;
         }
 
+        /* New button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #ff7e00 0%, #ff3c00 100%);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 126, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(255, 126, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #ff7e00;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 126, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-tertiary {
+            background: transparent;
+            color: white;
+            border: 2px solid #5865F2;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tertiary:hover {
+            background: rgba(88, 101, 242, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-quaternary {
+            background: transparent;
+            color: white;
+            border: 2px solid #3BA55C;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-quaternary:hover {
+            background: rgba(59, 165, 92, 0.1);
+            transform: translateY(-2px);
+        }
+
         /* Mobile fixes */
         @media (max-width: 767px) {
             .hero-buttons {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 0.75rem;
             }
             
             .hero-buttons a {
                 width: 100%;
-                margin-bottom: 10px;
+                margin-bottom: 0;
             }
             
             .hero-buttons a:last-child {
@@ -298,8 +377,8 @@
             }
             
             .container {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
             
             .feature-card, .news-card, .support-widget {
@@ -331,14 +410,66 @@
             .footer-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.5rem;
             }
             
             .footer-links a {
-                margin-bottom: 10px;
+                margin-bottom: 0;
             }
             
-            .footer-links a:last-child {
-                margin-bottom: 0;
+            .section-padding {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                line-height: 2.25rem;
+            }
+            
+            .hero-content {
+                padding-top: 1rem;
+            }
+            
+            .hero-image {
+                margin-top: 2rem;
+            }
+            
+            .btn-primary, .btn-secondary, .btn-tertiary, .btn-quaternary {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Tablet fixes */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .hero-buttons {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+            
+            .hero-buttons a {
+                flex: 1 1 calc(50% - 0.75rem);
+            }
+            
+            .section-padding {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                line-height: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+                line-height: 2.5rem;
             }
         }
     </style>
@@ -362,42 +493,42 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative z-10 pt-16 pb-20 px-4">
+    <section class="relative z-10 pt-8 md:pt-16 pb-12 md:pb-20 px-4 section-padding">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="title-font text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <div class="md:w-1/2 mb-8 md:mb-0 hero-content">
+                <h1 class="title-font text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                     <span class="bg-clip-text text-transparent space-gradient">Защита</span> от сливов модераторов
                 </h1>
                 <p class="text-lg text-gray-300 mb-6 max-w-lg">
                     Anti Raid Bot предотвращает злоупотребления модераторов с правами администратора. Контролируйте действия персонала без риска для сервера.
                 </p>
-                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 hero-buttons">
+                <div class="flex flex-wrap gap-3 hero-buttons">
                     <a href="https://discord.com/oauth2/authorize?client_id=1376482498506391673&permissions=8&integration_type=0&scope=bot"
-                        class="px-6 py-3 rounded-full space-gradient text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all text-center btn text-sm">
+                        class="btn-primary">
                         <i class="fas fa-robot mr-2"></i> Добавить бота
                     </a>
                     <a href="#how-it-works"
-                        class="px-6 py-3 rounded-full bg-transparent border-2 border-orange-500 text-white font-bold hover:bg-orange-500/10 transition-all text-center btn text-sm">
+                        class="btn-secondary">
                         <i class="fas fa-info-circle mr-2"></i> Подробнее
                     </a>
                     <a href="https://antiraidbot.ru/docs"
-                        class="px-6 py-3 rounded-full bg-transparent border-2 border-blue-500 text-white font-bold hover:bg-blue-500/10 transition-all text-center btn text-sm">
+                        class="btn-tertiary">
                         <i class="fas fa-book mr-2"></i> Документация
                     </a>
                     <a href="https://boosty.to/pavlyska"
-                        class="px-6 py-3 rounded-full bg-transparent border-2 border-green-500 text-white font-bold hover:bg-green-500/10 transition-all text-center btn text-sm">
+                        class="btn-quaternary">
                         <i class="fas fa-donate mr-2"></i> Поддержать
                     </a>
                 </div>
-                                                          
+                                                                
                 <div class="mt-8 flex items-center space-x-4">
                     <div class="text-sm text-gray-300">
                         <p>Используется на <span class="text-orange-400 font-bold">100+</span> серверах</p>
                     </div>
                 </div>
             </div>
-                                                  
-            <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
+                                                            
+            <div class="md:w-1/2 flex justify-center mt-8 md:mt-0 hero-image">
                 <div class="relative floating max-w-md w-full">
                     <div class="absolute -inset-3 rounded-2xl bg-orange-500/20 blur-lg"></div>
                     <div class="relative space-card rounded-xl p-1.5">
@@ -412,23 +543,23 @@
                                     <h3 class="font-bold text-orange-400">Панель управления Anti Raid</h3>
                                     <span class="text-xs bg-green-900/50 text-green-400 px-2 py-1 rounded">АКТИВНО</span>
                                 </div>
-                                                                                              
+                                                                                                                        
                                 <div class="space-y-3">
                                     <button class="w-full flex items-center justify-between px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded text-sm transition">
                                         <span>Настройки защиты</span>
                                         <i class="fas fa-chevron-right text-xs text-gray-400"></i>
                                     </button>
-                                                                                                      
+                                                                                                    
                                     <button class="w-full flex items-center justify-between px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded text-sm transition">
                                         <span>Вкл/Выкл защиту</span>
                                         <i class="fas fa-chevron-right text-xs text-gray-400"></i>
                                     </button>
-                                                                                                      
+                                                                                                    
                                     <button class="w-full flex items-center justify-between px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded text-sm transition">
                                         <span>Управление доверенными лицами</span>
                                         <i class="fas fa-chevron-right text-xs text-gray-400"></i>
                                     </button>
-                                                                                                      
+                                                                                                    
                                     <div class="p-2 bg-gray-800/50 rounded text-xs text-center text-yellow-400 mt-2">
                                         <i class="fas fa-exclamation-triangle mr-1"></i> Обнаружена попытка удаления роли администратором!
                                     </div>
@@ -442,9 +573,9 @@
     </section>
 
     <!-- How It Works Section - Improved Structure -->
-    <section id="how-it-works" class="relative z-10 py-16 px-4 bg-space-light bg-opacity-50">
+    <section id="how-it-works" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
         <div class="container mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
                     <span class="bg-clip-text text-transparent space-gradient">Как</span> это работает
                 </h2>
@@ -453,16 +584,16 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 <!-- Setup Phase -->
-                <div class="space-card rounded-xl p-6">
-                    <div class="flex items-center mb-4">
+                <div class="space-card rounded-xl p-4 md:p-6">
+                    <div class="flex items-center mb-3 md:mb-4">
                         <div class="w-10 h-10 rounded-full space-gradient flex items-center justify-center mr-3">
                             <i class="fas fa-download text-white"></i>
                         </div>
                         <h3 class="font-bold text-lg">Установка</h3>
                     </div>
-                    <ul class="space-y-3 text-sm text-gray-300">
+                    <ul class="space-y-2 md:space-y-3 text-sm text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-check text-orange-400 mr-2 mt-1"></i>
                             <span>Добавьте бота на сервер с правами администратора</span>
@@ -479,14 +610,14 @@
                 </div>
 
                 <!-- Configuration Phase -->
-                <div class="space-card rounded-xl p-6">
-                    <div class="flex items-center mb-4">
+                <div class="space-card rounded-xl p-4 md:p-6">
+                    <div class="flex items-center mb-3 md:mb-4">
                         <div class="w-10 h-10 rounded-full space-gradient flex items-center justify-center mr-3">
                             <i class="fas fa-cog text-white"></i>
                         </div>
                         <h3 class="font-bold text-lg">Настройка</h3>
                     </div>
-                    <ul class="space-y-3 text-sm text-gray-300">
+                    <ul class="space-y-2 md:space-y-3 text-sm text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-check text-orange-400 mr-2 mt-1"></i>
                             <span>Пропишите <code class="bg-gray-800 px-2 py-1 rounded">/settings</code></span>
@@ -503,14 +634,14 @@
                 </div>
 
                 <!-- Protection Phase -->
-                <div class="space-card rounded-xl p-6">
-                    <div class="flex items-center mb-4">
+                <div class="space-card rounded-xl p-4 md:p-6">
+                    <div class="flex items-center mb-3 md:mb-4">
                         <div class="w-10 h-10 rounded-full space-gradient flex items-center justify-center mr-3">
                             <i class="fas fa-shield-alt text-white"></i>
                         </div>
                         <h3 class="font-bold text-lg">Защита</h3>
                     </div>
-                    <ul class="space-y-3 text-sm text-gray-300">
+                    <ul class="space-y-2 md:space-y-3 text-sm text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-check text-orange-400 mr-2 mt-1"></i>
                             <span>Бот мониторит действия в реальном времени</span>
@@ -528,10 +659,10 @@
             </div>
 
             <!-- Detailed Steps -->
-            <div class="mt-12 max-w-3xl mx-auto">
-                <div class="space-card rounded-xl p-6">
-                    <h3 class="font-bold text-lg mb-4 text-center">Подробное руководство</h3>
-                                      
+            <div class="mt-8 md:mt-12 max-w-3xl mx-auto">
+                <div class="space-card rounded-xl p-4 md:p-6">
+                    <h3 class="font-bold text-lg mb-3 md:mb-4 text-center">Подробное руководство</h3>
+                                                    
                     <div class="step-container">
                         <div class="step-number">1</div>
                         <div class="step-content">
@@ -541,7 +672,7 @@
                             </p>
                         </div>
                     </div>
-                                      
+                                                    
                     <div class="step-container">
                         <div class="step-number">2</div>
                         <div class="step-content">
@@ -551,7 +682,7 @@
                             </p>
                         </div>
                     </div>
-                                      
+                                                    
                     <div class="step-container">
                         <div class="step-number">3</div>
                         <div class="step-content">
@@ -561,7 +692,7 @@
                             </p>
                         </div>
                     </div>
-                                      
+                                                    
                     <div class="step-container">
                         <div class="step-number">4</div>
                         <div class="step-content">
@@ -577,9 +708,9 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="relative z-10 py-16 px-4 bg-space-light bg-opacity-50">
+    <section id="features" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
         <div class="container mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
                     <span class="bg-clip-text text-transparent space-gradient">Основные</span> функции
                 </h2>
@@ -587,8 +718,8 @@
                     Мощные инструменты для защиты вашего Discord сервера от злоупотреблений
                 </p>
             </div>
-                                                  
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 <!-- Feature 1 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -599,7 +730,7 @@
                         Фиксирует все опасные действия администраторов: удаление каналов, ролей.
                     </p>
                 </div>
-                                                                  
+                                                                
                 <!-- Feature 2 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -610,7 +741,7 @@
                         Мгновенные оповещения в личные сообщения владельцу.
                     </p>
                 </div>
-                                                                  
+                                                                
                 <!-- Feature 3 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -621,7 +752,7 @@
                         Защита от администраторов с полным доступом в независмости от роли.
                     </p>
                 </div>
-                                                                  
+                                                                
                 <!-- Feature 4 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -632,7 +763,7 @@
                         Простая настройка через 1 команду.
                     </p>
                 </div>
-                                                                  
+                                                                
                 <!-- Feature 5 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -643,7 +774,7 @@
                         Используем передовые технологии для поддержания производительности.
                     </p>
                 </div>
-                                                                  
+                                                                
                 <!-- Feature 6 -->
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -657,24 +788,24 @@
             </div>
         </div>
     </section>
-                      
+                        
     <!-- Stats Section -->
-    <section class="relative z-10 py-12 px-4 bg-space-light bg-opacity-70">
+    <section class="relative z-10 py-8 md:py-12 px-4 bg-space-light bg-opacity-70">
         <div class="container mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center stats-grid">
-                <div class="space-card rounded-lg py-5 px-3">
+                <div class="space-card rounded-lg py-4 md:py-5 px-3">
                     <div class="text-2xl md:text-3xl font-bold mb-1 text-orange-400">170+</div>
                     <div class="text-gray-300 text-sm">серверов</div>
                 </div>
-                <div class="space-card rounded-lg py-5 px-3">
+                <div class="space-card rounded-lg py-4 md:py-5 px-3">
                     <div class="text-2xl md:text-3xl font-bold mb-1 text-orange-400">24/7</div>
                     <div class="text-gray-300 text-sm">защита</div>
                 </div>
-                <div class="space-card rounded-lg py-5 px-3">
+                <div class="space-card rounded-lg py-4 md:py-5 px-3">
                     <div class="text-2xl md:text-3xl font-bold mb-1 text-orange-400">0</div>
                     <div class="text-gray-300 text-sm">успешных сливов</div>
                 </div>
-                <div class="space-card rounded-lg py-5 px-3">
+                <div class="space-card rounded-lg py-4 md:py-5 px-3">
                     <div class="text-2xl md:text-3xl font-bold mb-1 text-orange-400">1</div>
                     <div class="text-gray-300 text-sm">клик для установки</div>
                 </div>
@@ -683,9 +814,9 @@
     </section>
 
     <!-- Latest News Section -->
-    <section id="news" class="relative z-10 py-16 px-4 bg-space-light bg-opacity-50">
+    <section id="news" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
         <div class="container mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
                     <span class="bg-clip-text text-transparent space-gradient">Последние</span> новости
                 </h2>
@@ -694,10 +825,10 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
                 <!-- News Item 1 -->
                 <div class="news-card">
-                    <div class="p-5">
+                    <div class="p-4 md:p-5">
                         <div class="flex justify-between items-start mb-3">
                             <h3 class="font-bold text-lg">Улучшили запуск бота</h3>
                             <span class="news-date">22.07.2025</span>
@@ -709,14 +840,14 @@
                             <span class="text-xs bg-red-500/10 text-red-400 px-2 py-1 rounded">pavlyska</span>
                             <span class="text-xs bg-blue-500/10 text-blue-400 px-2 py-1 rounded">РАЗРАБОТКА</span>
                             <span class="text-xs bg-blue-500/10 text-blue-400 px-2 py-1 rounded">Discord</span>
-                            
+                                                  
                         </div>
                     </div>
                 </div>
 
                 <!-- News Item 2 -->
                 <div class="news-card">
-                    <div class="p-5">
+                    <div class="p-4 md:p-5">
                         <div class="flex justify-between items-start mb-3">
                             <h3 class="font-bold text-lg">Обновление сайта</h3>
                             <span class="news-date">23.07.2025</span>
@@ -735,9 +866,9 @@
     </section>
 
     <!-- Support Server Section -->
-    <section id="support" class="relative z-10 py-16 px-4 bg-space-light bg-opacity-50">
+    <section id="support" class="relative z-10 py-12 md:py-16 px-4 bg-space-light bg-opacity-50 section-padding">
         <div class="container mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
                     <span class="bg-clip-text text-transparent space-gradient">Сервер</span> поддержки
                 </h2>
@@ -747,45 +878,45 @@
             </div>
 
             <div class="max-w-2xl mx-auto">
-                <div class="support-widget p-6">
+                <div class="support-widget p-4 md:p-6">
                     <div class="flex flex-col md:flex-row items-center">
-                        <div class="w-20 h-20 rounded-full bg-indigo-600 flex items-center justify-center mb-4 md:mb-0 md:mr-6">
-                            <i class="fab fa-discord text-white text-3xl"></i>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+                            <i class="fab fa-discord text-white text-2xl md:text-3xl"></i>
                         </div>
                         <div class="flex-1 text-center md:text-left">
-                            <h3 class="font-bold text-xl mb-2">ANTIRAID COMMUNITY</h3>
+                            <h3 class="font-bold text-lg md:text-xl mb-2">ANTIRAID COMMUNITY</h3>
                             <p class="text-gray-300 text-sm mb-3">
                                 Официальный сервер поддержки, где вы можете получить помощь, сообщить о проблемах и обсудить новые функции бота.
                             </p>
-                            <div class="member-count mb-4">
+                            <div class="member-count mb-3 md:mb-4">
                                 <span class="online-indicator"></span>
                                 <span>60+ участников</span>
                             </div>
                             <a href="https://dsc.gg/antiraidbot"
-                                class="inline-flex items-center px-6 py-3 rounded-full discord-blurple text-white font-bold hover:shadow-lg hover:shadow-indigo-500/30 transition-all btn text-sm">
+                                class="inline-flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full discord-blurple text-white font-bold hover:shadow-lg hover:shadow-indigo-500/30 transition-all btn text-sm">
                                 <i class="fab fa-discord mr-2"></i> Присоединиться
                             </a>
                         </div>
                     </div>
 
-                    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-gray-800/50 rounded-lg p-4 text-center">
+                    <div class="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
                             <div class="text-orange-400 mb-2">
-                                <i class="fas fa-question-circle text-xl"></i>
+                                <i class="fas fa-question-circle text-lg md:text-xl"></i>
                             </div>
                             <h4 class="font-bold text-sm mb-1">FAQ</h4>
                             <p class="text-gray-400 text-xs">Ответы на частые вопросы</p>
                         </div>
-                        <div class="bg-gray-800/50 rounded-lg p-4 text-center">
+                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
                             <div class="text-orange-400 mb-2">
-                                <i class="fas fa-bug text-xl"></i>
+                                <i class="fas fa-bug text-lg md:text-xl"></i>
                             </div>
                             <h4 class="font-bold text-sm mb-1">Поддержка</h4>
                             <p class="text-gray-400 text-xs">Система тикетов</p>
                         </div>
-                        <div class="bg-gray-800/50 rounded-lg p-4 text-center">
+                        <div class="bg-gray-800/50 rounded-lg p-3 md:p-4 text-center">
                             <div class="text-orange-400 mb-2">
-                                <i class="fas fa-lightbulb text-xl"></i>
+                                <i class="fas fa-lightbulb text-lg md:text-xl"></i>
                             </div>
                             <h4 class="font-bold text-sm mb-1">Идеи</h4>
                             <p class="text-gray-400 text-xs">Предложите новые функции</p>
@@ -797,9 +928,9 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="relative z-10 py-16 px-4">
+    <section id="faq" class="relative z-10 py-12 md:py-16 px-4 section-padding">
         <div class="container mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <h2 class="title-font text-2xl md:text-3xl font-bold mb-3">
                     <span class="bg-clip-text text-transparent space-gradient">Частые</span> вопросы
                 </h2>
@@ -807,12 +938,12 @@
                     Ответы на самые популярные вопросы о Anti Raid Bot
                 </p>
             </div>
-                                                  
-            <div class="max-w-3xl mx-auto space-y-3">
+                                                            
+            <div class="max-w-3xl mx-auto space-y-3 md:space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="space-card rounded-lg overflow-hidden">
                     <button class="faq-toggle w-full flex items-center justify-between px-4 py-3 text-left">
-                        <span class="font-bold text-sm">Как бот защищает от сливов модераторов?</span>
+                        <span class="font-bold text-sm md:text-base">Как бот защищает от сливов модераторов?</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content px-4 pb-3 hidden">
@@ -821,11 +952,11 @@
                         </p>
                     </div>
                 </div>
-                                                                  
+                                                                
                 <!-- FAQ Item 2 -->
                 <div class="space-card rounded-lg overflow-hidden">
                     <button class="faq-toggle w-full flex items-center justify-between px-4 py-3 text-left">
-                        <span class="font-bold text-sm">Нужны ли боту права администратора?</span>
+                        <span class="font-bold text-sm md:text-base">Нужны ли боту права администратора?</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content px-4 pb-3 hidden">
@@ -834,11 +965,11 @@
                         </p>
                     </div>
                 </div>
-                                                                  
+                                                                
                 <!-- FAQ Item 3 -->
                 <div class="space-card rounded-lg overflow-hidden">
                     <button class="faq-toggle w-full flex items-center justify-between px-4 py-3 text-left">
-                        <span class="font-bold text-sm">Можно ли настроить, какие действия блокировать?</span>
+                        <span class="font-bold text-sm md:text-base">Можно ли настроить, какие действия блокировать?</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content px-4 pb-3 hidden">
@@ -847,11 +978,11 @@
                         </p>
                     </div>
                 </div>
-                                                                  
+                                                                
                 <!-- FAQ Item 4 -->
                 <div class="space-card rounded-lg overflow-hidden">
                     <button class="faq-toggle w-full flex items-center justify-between px-4 py-3 text-left">
-                        <span class="font-bold text-sm">Как просмотреть список доверенных лиц </span>
+                        <span class="font-bold text-sm md:text-base">Как просмотреть список доверенных лиц </span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content px-4 pb-3 hidden">
@@ -860,11 +991,11 @@
                         </p>
                     </div>
                 </div>
-                                                                  
+                                                                
                 <!-- FAQ Item 5 -->
                 <div class="space-card rounded-lg overflow-hidden">
                     <button class="faq-toggle w-full flex items-center justify-between px-4 py-3 text-left">
-                        <span class="font-bold text-sm">Как получить помощь по работе бота?</span>
+                        <span class="font-bold text-sm md:text-base">Как получить помощь по работе бота?</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content px-4 pb-3 hidden">
@@ -878,15 +1009,15 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative z-10 py-16 px-4">
+    <section class="relative z-10 py-12 md:py-16 px-4 section-padding">
         <div class="container mx-auto text-center">
-            <div class="max-w-2xl mx-auto space-card rounded-xl p-8 relative overflow-hidden">
+            <div class="max-w-2xl mx-auto space-card rounded-xl p-6 md:p-8 relative overflow-hidden">
                 <div class="absolute -inset-1 bg-orange-500/10 rounded-xl blur-lg"></div>
                 <div class="relative">
-                    <h2 class="title-font text-2xl md:text-3xl font-bold mb-4">
+                    <h2 class="title-font text-2xl md:text-3xl font-bold mb-3 md:mb-4">
                         Защитите свой сервер сейчас
                     </h2>
-                    <p class="text-gray-300 mb-6 text-sm">
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm">
                         Добавьте Anti Raid Bot и забудьте о проблемах со злоупотреблениями модераторов
                     </p>
                     <a href="https://discord.com/oauth2/authorize?client_id=1376482498506391673&permissions=8&integration_type=0&scope=bot"
@@ -897,38 +1028,38 @@
             </div>
         </div>
     </section>
-    
+        
     <!-- Footer -->
-    <footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
+    <footer class="relative z-10 pt-8 md:pt-12 pb-6 md:pb-8 px-4 bg-space-light">
         <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
                     <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
                         <i class="fas fa-shield-alt text-white text-sm"></i>
                     </div>
                     <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
                 </div>
-                                                                  
-                <div class="flex space-x-4 footer-links">
+                                                                
+                <div class="flex flex-wrap gap-3 md:gap-4 justify-center footer-links">
                     <a href="#" class="text-gray-400 hover:text-orange-400 transition">
                         <i class="fab fa-discord text-lg"></i>
                     </a>
                     <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
                         <i class="fab fa-telegram text-lg"></i>
                     </a>
-                    <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Документация</span>
+                    <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                        Документация
                     </a>
-                    <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Политика конфиденциальности</span>
+                    <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                        Политика конфиденциальности
                     </a>
-                    <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Условия использования</span>
+                    <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition text-sm">
+                        Условия использования
                     </a>
                 </div>
             </div>
-                                                  
-            <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
+                                                            
+            <div class="pt-4 md:pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
                 <p> 2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
             </div>
         </div>
@@ -943,7 +1074,7 @@
         <a href="https://discord.com/oauth2/authorize?client_id=1376482498506391673&permissions=8&integration_type=0&scope=bot"
             class="w-12 h-12 rounded-full space-gradient flex items-center justify-center text-white shadow-lg hover:shadow-orange-500/30 transition btn">
             <i class="fas fa-plus"></i>
-        </div>
+        </a>
     </div>
 
     <script>
@@ -951,7 +1082,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const starsContainer = document.getElementById('stars-container');
             const starsCount = 100;
-                                                  
+                                                            
             for (let i = 0; i < starsCount; i++) {
                 const star = document.createElement('div');
                 const size = Math.random() * 2;
@@ -960,7 +1091,7 @@
                 const duration = 2 + Math.random() * 5;
                 const delay = Math.random() * 5;
                 const opacity = 0.1 + Math.random() * 0.9;
-                                                                  
+                                                                                
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 star.style.left = `${posX}%`;
@@ -969,22 +1100,22 @@
                 star.style.setProperty('--opacity', opacity);
                 star.style.animationDelay = `${delay}s`;
                 star.classList.add('star');
-                                                                  
+                                                                                
                 starsContainer.appendChild(star);
             }
-                                                  
+                                                            
             // FAQ toggle
             const faqToggles = document.querySelectorAll('.faq-toggle');
             faqToggles.forEach(toggle => {
                 toggle.addEventListener('click', function() {
                     const content = this.nextElementSibling;
                     const icon = this.querySelector('i');
-                                                              
+                                                                                
                     content.classList.toggle('hidden');
                     icon.classList.toggle('rotate');
                 });
             });
-                                                  
+                                                            
             // Tab switching
             const tabButtons = document.querySelectorAll('.tab-button');
             tabButtons.forEach(button => {
@@ -994,21 +1125,21 @@
                         btn.classList.remove('border-orange-500', 'font-medium');
                         btn.classList.add('text-gray-400');
                     });
-                                                              
+                                                                                
                     // Add active class to clicked tab
                     this.classList.add('border-orange-500', 'font-medium');
                     this.classList.remove('text-gray-400');
                 });
             });
-                                                  
+                                                            
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                                                              
+                                                                                
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                                                              
+                                                                                
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
@@ -1018,16 +1149,16 @@
                     }
                 });
             });
-                                                  
+                                                            
             // Generate random colors for user avatars
             const colors = ['#FF5252', '#FF4081', '#E040FB', '#7C4DFF', '#536DFE', '#448AFF', '#40C4FF', '#18FFFF', '#64FFDA', '#69F0AE', '#B2FF59', '#EEFF41', '#FFFF00', '#FFD740', '#FFAB40', '#FF6E40'];
-                                                  
+                                                            
             const avatars = document.querySelectorAll('.user-avatar, .testimonial-author-icon');
             avatars.forEach(avatar => {
                 // Random color
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
                 avatar.style.background = randomColor;
-                                                  
+                                                                
                 // Random letter if it's user avatar
                 if (avatar.classList.contains('user-avatar')) {
                     const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
