@@ -219,22 +219,26 @@
     <!-- Star Background -->
     <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
 
-    <!-- Header -->
-    <header class="relative z-10">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-sm"></i>
-                    </div>
-                    <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
-                </a>
-                <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border-2 border-orange-500 text-white font-medium hover:bg-orange-500/10 transition-all text-center btn text-sm">
-                    <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
-                </a>
-            </div>
-        </nav>
-    </header>
+<!-- Header -->
+<header class="relative z-10">
+    <nav class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <!-- Логотип с аватаркой -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                </div>
+                <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
+            </a>
+
+            <!-- Кнопка "Вернуться на главную" -->
+            <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border-2 border-orange-500 text-white font-medium hover:bg-orange-500/10 transition-all text-center btn text-sm">
+                <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
+            </a>
+        </div>
+    </nav>
+</header>
 
     <!-- Main Content -->
     <main class="relative z-10 py-12 px-4">
@@ -362,41 +366,45 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-sm"></i>
-                    </div>
-                    <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
+<!-- Footer -->
+<footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+            <!-- Логотип с аватаркой -->
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
                 </div>
-                                                                
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-orange-400 transition">
-                        <i class="fab fa-discord text-lg"></i>
-                    </a>
-                    <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
-                        <i class="fab fa-telegram text-lg"></i>
-                    </a>
-                    <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Документация</span>
-                    </a>
-                    <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Политика конфиденциальности</span>
-                    </a>
-                    <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition">
-                        <span class="text-sm">Условия использования</span>
-                    </a>
-                </div>
+                <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
             </div>
-                                                
-            <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs tracking-wider">
-                <p>© 2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
+
+            <!-- Соцсети и ссылки -->
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-orange-400 transition">
+                    <i class="fab fa-discord text-lg"></i>
+                </a>
+                <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
+                    <i class="fab fa-telegram text-lg"></i>
+                </a>
+                <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition">
+                    <span class="text-sm">Документация</span>
+                </a>
+                <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition">
+                    <span class="text-sm">Политика конфиденциальности</span>
+                </a>
+                <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition">
+                    <span class="text-sm">Условия использования</span>
+                </a>
             </div>
         </div>
-    </footer>
+
+        <!-- Копирайт -->
+        <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs tracking-wider">
+            <p>© 2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Floating Action Buttons -->
     <div class="fixed bottom-4 right-4 z-50 flex flex-col space-y-3">
