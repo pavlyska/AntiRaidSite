@@ -300,24 +300,28 @@
     <!-- Star Background -->
     <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
 
-    <!-- Header -->
-    <header class="relative z-10">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-full space-gradient flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-sm"></i>
-                    </div>
-                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">AntiRaid Bot</span>
+<!-- Header -->
+<header class="relative z-10">
+    <nav class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <!-- Логотип с аватаркой -->
+            <div class="flex items-center space-x-2">
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
                 </div>
-                <div>
-                    <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border border-orange-500 text-white hover:bg-orange-500/10 transition text-sm">
-                        <i class="fas fa-arrow-left mr-2"></i> На главную
-                    </a>
-                </div>
+                <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">AntiRaid Bot</span>
             </div>
-        </nav>
-    </header>
+
+            <!-- Кнопка "На главную" -->
+            <div>
+                <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border border-orange-500 text-white hover:bg-orange-500/10 transition text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i> На главную
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
 
     <!-- Documentation Content -->
     <section class="relative z-10 py-8 px-4">
