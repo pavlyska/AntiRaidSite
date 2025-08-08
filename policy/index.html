@@ -85,9 +85,16 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 126, 0, 0.2);
             border-radius: 0.75rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .policy-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
         }
 
         .policy-section:hover {
@@ -96,18 +103,28 @@
         }
 
         .policy-icon {
-            width: 3rem;
-            height: 3rem;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 0.75rem;
             background: rgba(255, 126, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1.5rem;
-            margin-bottom: 0;
+            margin-right: 0;
+            margin-bottom: 1rem;
             color: #ff7e00;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .policy-icon {
+                width: 3rem;
+                height: 3rem;
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+                font-size: 1.25rem;
+            }
         }
 
         .policy-content {
@@ -119,6 +136,13 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 0;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .policy-header {
+                flex-direction: row;
+            }
         }
 
         code {
@@ -174,6 +198,23 @@
             font-size: 1.2em;
         }
     </style>
+    <link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/fav/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+    <link rel="manifest" href="/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="min-h-screen">
     <!-- Star Background -->
@@ -182,22 +223,24 @@
 <!-- Header -->
 <header class="relative z-10">
     <nav class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-center">
-            <div class="flex items-center space-x-2">
-                <!-- Аватарка с эффектом свечения -->
-                <div class="relative">
-                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
-                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center space-x-2">
+                    <!-- Аватарка с эффектом свечения -->
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                        <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                    </div>
+                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
                 </div>
-                <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
             </div>
         </div>
     </nav>
 </header>
 
     <!-- Main Content -->
-    <main class="relative z-10 py-16 px-4">
-        <div class="container mx-auto max-w-4xl">
+    <main class="relative z-10 py-8 md:py-16 px-4">
+        <div class="container mx-auto max-w-4xl px-2 sm:px-4">
             <!-- Hero Section -->
             <div class="text-center mb-12">
                 <h1 class="title-font text-3xl md:text-4xl font-bold mb-4 leading-tight">
@@ -207,7 +250,7 @@
                     для Discord бота Anti Raid Bot
                 </p>
                 <div class="highlight-box">
-                    <p class="text-sm"><strong>Дата последнего обновления:</strong> 25 июля 2025 года</p>
+                    <p class="text-sm"><strong>Дата последнего обновления:</strong> 8 августа 2025 года</p>
                 </div>
             </div>
 
@@ -445,7 +488,7 @@
 
             <!-- Back to Main Site -->
             <div class="text-center mt-12">
-                <a href="/"
+                <a href="https://antiraidbot.ru/"
                     class="inline-flex items-center px-6 py-3 rounded-full space-gradient text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all btn">
                     <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
                 </a>
@@ -480,7 +523,6 @@
         <!-- Копирайт -->
         <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs text-cyrillic">
             <p>&copy; 2025 Anti Raid Bot. Все права защищены. Мы не являемся аффилированным лицом компании Discord Inc.</p>
-            <p class="mt-1">Информация на этой странице может быть изменена без предварительного уведомления.</p>
         </div>
     </div>
 </footer>

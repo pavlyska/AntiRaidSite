@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anti Raid Bot | Условия использования</title>
-    <meta name="description" content="Условия использования бота AntiRaidBot">
     <meta name="keywords" content="Discord бот, защита сервера Discord, антирейд, антикраш, антислив, модерация, безопасность, бот для Discord, защита от краша, защита от сливов, защита от рейда, Discord server protection, как защитить дискорд сервер, AntiRaidBot, AntiEvilBot, бот для защиты Discord, дискорд бот защита, дискорд бот антирейд, дискорд бот антикраш, дискорд бот антислив, дискорд бот модерация, дискорд бот безопасность, защита дискорд сервера, антирейд дискорд, антикраш дискорд, антислив дискорд, модерация дискорд сервера, безопасность дискорд сервера, бот для дискорд сервера, дискорд бот для защиты сервера." />
+    <meta name="description" content="Условия использования бота AntiRaidBot">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -27,13 +27,10 @@
             color: white;
             overflow-x: hidden;
             line-height: 1.6;
-            font-weight: 400;
-            letter-spacing: 0.01em;
         }
 
         .title-font {
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.05em;
         }
 
         .space-gradient {
@@ -83,120 +80,122 @@
             transform: translateY(-2px);
         }
 
-        /* Improved Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        a {
-            transition: all 0.2s ease;
-        }
-
-        /* Terms specific styles */
-        .terms-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .terms-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .terms-title {
-            position: relative;
-            padding-left: 1.5rem;
+        .policy-section {
+            background: rgba(26, 33, 56, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
             margin-bottom: 1.5rem;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #fff;
-            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
         }
 
-        .terms-title:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.3rem;
-            height: 1.8rem;
-            width: 0.5rem;
-            background: var(--space-orange);
-            border-radius: 0.25rem;
+        @media (min-width: 768px) {
+            .policy-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
         }
 
-        .terms-list {
-            list-style-type: none;
-            padding-left: 1.5rem;
+        .policy-section:hover {
+            border-color: rgba(255, 126, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 126, 0, 0.2);
         }
 
-        .terms-list li {
-            position: relative;
+        .policy-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            background: rgba(255, 126, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0;
             margin-bottom: 1rem;
-            padding-left: 1.8rem;
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.6;
+            color: #ff7e00;
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
-        .terms-list li:before {
-            content: '•';
-            position: absolute;
-            left: 0;
+        @media (min-width: 768px) {
+            .policy-icon {
+                width: 3rem;
+                height: 3rem;
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+                font-size: 1.25rem;
+            }
+        }
+
+        .policy-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .policy-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .policy-header {
+                flex-direction: row;
+            }
+        }
+
+        code {
+            background: rgba(255, 126, 0, 0.1);
             color: #ff7e00;
-            font-weight: bold;
-            font-size: 1.4rem;
-            line-height: 1;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-family: 'Courier New', monospace;
+            border: 1px solid rgba(255, 126, 0, 0.2);
         }
 
         .highlight-box {
-            background: rgba(255, 126, 0, 0.1);
-            border-left: 3px solid #ff7e00;
-            padding: 1.25rem;
-            margin: 1.75rem 0;
-            border-radius: 0 0.5rem 0.5rem 0;
-            font-size: 1.05rem;
+            background: rgba(255, 126, 0, 0.05);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
         }
 
-        .version-info {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.5);
-            text-align: right;
-            margin-top: 2rem;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: 0.02em;
+        .contact-card {
+            background: rgba(26, 33, 56, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        /* Improved readability for nested lists */
-        .terms-list ul {
-            margin-top: 0.5rem;
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 126, 0, 0.3);
+            border-color: rgba(255, 126, 0, 0.5);
+        }
+
+        /* Improved typography for Russian text */
+        .text-cyrillic {
+            letter-spacing: 0.01em;
+            word-spacing: 0.05em;
+        }
+
+        /* Better list styling */
+        .policy-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
             padding-left: 1.5rem;
         }
 
-        .terms-list ul li {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 0.5rem;
-        }
-
-        .terms-list ul li:before {
-            content: '—';
-            color: rgba(255, 126, 0, 0.7);
-            font-size: 1rem;
-            left: -0.5rem;
-        }
-
-        /* Gradient text for headings */
-        .gradient-text {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .policy-list li:before {
+            content: "•";
+            color: #ff7e00;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
         }
     </style>
     <link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
@@ -221,204 +220,328 @@
     <!-- Star Background -->
     <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
 
-<!-- Header -->
-<header class="relative z-10">
-    <nav class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-between">
-            <!-- Логотип с аватаркой -->
-            <a href="index.html" class="flex items-center space-x-2">
-                <div class="relative">
-                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
-                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+    <!-- Header -->
+    <header class="relative z-10">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center space-x-2">
+                        <!-- Аватарка с эффектом свечения -->
+                        <div class="relative">
+                            <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                            <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                        </div>
+                        <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
+                    </div>
                 </div>
-                <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
-            </a>
-
-            <!-- Кнопка "Вернуться на главную" -->
-            <a href="https://antiraidbot.ru/" class="px-4 py-2 rounded-full bg-transparent border-2 border-orange-500 text-white font-medium hover:bg-orange-500/10 transition-all text-center btn text-sm">
-                <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
-            </a>
-        </div>
-    </nav>
-</header>
+            </div>
+        </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="relative z-10 py-12 px-4">
-        <div class="container mx-auto">
+    <main class="relative z-10 py-8 md:py-16 px-4">
+        <div class="container mx-auto max-w-4xl px-2 sm:px-4">
+            <!-- Hero Section -->
             <div class="text-center mb-12">
-                <h1 class="title-font text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                    <span class="gradient-text space-gradient">Условия</span> использования
+                <h1 class="title-font text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                    📜 <span class="bg-clip-text text-transparent space-gradient">Условия использования</span>
                 </h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-base tracking-wide">
-                    Последнее обновление: 27 мая 2025 года
+                <p class="text-lg text-gray-300 mb-6 text-cyrillic">
+                    для Discord бота Anti Raid Bot
                 </p>
+                <div class="highlight-box">
+                    <p class="text-sm"><strong>Дата последнего обновления:</strong> 8 августа 2025 года</p>
+                </div>
             </div>
 
-            <div class="terms-container space-card rounded-xl p-6 md:p-8">
-                <!-- Introduction -->
-                <div class="terms-section">
-                    <p class="mb-6">
-                        Добро пожаловать в Anti Raid Bot! Пожалуйста, внимательно ознакомьтесь с этими Условиями использования ("Условия"), прежде чем использовать наш бот. Используя Anti Raid Bot, вы соглашаетесь соблюдать эти Условия.
-                    </p>
-                </div>
-
-                <!-- 1. Общие положения -->
-                <div class="terms-section">
-                    <h2 class="terms-title">1. Общие положения</h2>
-                    <ul class="terms-list">
-                        <li>Anti Raid Bot ("Бот") — это Discord бот, разработанный для защиты серверов от злоупотреблений административными правами.</li>
-                        <li>Используя Бота, вы подтверждаете, что прочитали, поняли и согласны с этими Условиями.</li>
-                        <li>Мы оставляем за собой право изменять эти Условия в любое время. Продолжение использования Бота после внесения изменений означает ваше согласие с новыми Условиями.</li>
-                    </ul>
-                </div>
-
-                <!-- 2. Использование бота -->
-                <div class="terms-section">
-                    <h2 class="terms-title">2. Использование бота</h2>
-                    <ul class="terms-list">
-                        <li>Вы можете добавить Бота на любой Discord сервер, где у вас есть права администратора.</li>
-                        <li>Для полноценной работы Боту требуются права администратора на сервере.</li>
-                        <li>Вы обязуетесь использовать Бота только в законных целях и в соответствии с Правилами сообщества Discord.</li>
-                        <li>Запрещается использовать Бота для:
-                            <ul>
-                                <li>Нарушения правил Discord</li>
-                                <li>Автоматизации вредоносных действий</li>
-                                <li>Обхода ограничений Discord</li>
-                                <li>Любой незаконной деятельности</li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <p class="text-orange-300 font-medium">
-                            <i class="fas fa-exclamation-triangle mr-2"></i> Нарушение этих правил может привести к отключению Бота от вашего сервера без предупреждения.
+            <!-- Introduction -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">1. Общие положения</h2>
+                        <p class="text-gray-300 leading-relaxed text-cyrillic">
+                            Настоящие Условия использования ("Условия") регулируют ваше использование бота <strong class="text-orange-400">Anti Raid Bot</strong> ("Бот") на платформе Discord. Добавляя Бота на свой сервер, вы соглашаетесь соблюдать эти Условия.
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <!-- 3. Ограничения ответственности -->
-                <div class="terms-section">
-                    <h2 class="terms-title">3. Ограничения ответственности</h2>
-                    <ul class="terms-list">
-                        <li>Мы не несем ответственности за любой ущерб, вызванный использованием или невозможностью использования Бота.</li>
-                        <li>Мы не гарантируем бесперебойную работу Бота и оставляем за собой право временно отключать Бота для технического обслуживания.</li>
-                        <li>Мы не несем ответственности за действия администраторов на вашем сервере, даже если Бот не смог их предотвратить.</li>
-                        <li>Вы используете Бота на свой собственный риск.</li>
-                    </ul>
+            <!-- License -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">2. Лицензия на использование</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">Мы предоставляем вам ограниченную, неисключительную, непередаваемую лицензию на использование Бота при следующих условиях:</p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                Бот должен использоваться только в соответствии с <a href="https://discord.com/terms" class="text-orange-400 hover:underline">Условиями использования Discord</a> и <a href="https://discord.com/guidelines" class="text-orange-400 hover:underline">Руководством по сообществу Discord</a>.
+                            </li>
+                            <li>
+                                Запрещается использовать Бота для незаконной деятельности, нарушения прав других пользователей или создания угрозы безопасности.
+                            </li>
+                            <li>
+                                Вы не имеете права реверсировать инжиниринг, декомпилировать или пытаться извлечь исходный код Бота.
+                            </li>
+                            <li>
+                                Мы оставляем за собой право в любое время отозвать доступ к Боту без предварительного уведомления в случае нарушения этих Условий.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <!-- 4. Конфиденциальность -->
-                <div class="terms-section">
-                    <h2 class="terms-title">4. Конфиденциальность</h2>
-                    <ul class="terms-list">
-                        <li>Бот собирает и хранит только минимально необходимые данные для своей работы:
-                            <ul>
-                                <li>ID серверов, где установлен Бот</li>
-                                <li>Настройки защиты для каждого сервера</li>
-                                <li>Логи действий администраторов (хранятся временно)</li>
-                            </ul>
-                        </li>
-                        <li>Мы не продаем и не передаем ваши данные третьим лицам.</li>
-                        <li>Полная информация о сборе и использовании данных описана в нашей <a href="https://antiraidbot.ru/policy/" class="text-orange-400 hover:underline font-medium">Политике конфиденциальности</a>.</li>
-                    </ul>
+            <!-- Responsibilities -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">3. Обязанности пользователя</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">Используя Бота, вы соглашаетесь:</p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                Не использовать Бота для спама, фишинга, распространения вредоносного ПО или других злонамеренных действий.
+                            </li>
+                            <li>
+                                Не пытаться обойти защитные механизмы Бота или использовать его уязвимости.
+                            </li>
+                            <li>
+                                Не выдавать Бота за свой собственный продукт или сервис.
+                            </li>
+                            <li>
+                                Не использовать Бота на серверах, которые нарушают Условия использования Discord.
+                            </li>
+                            <li>
+                                Обеспечить, чтобы все участники вашего сервера соблюдали эти Условия.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <!-- 5. Изменения и прекращение работы -->
-                <div class="terms-section">
-                    <h2 class="terms-title">5. Изменения и прекращение работы</h2>
-                    <ul class="terms-list">
-                        <li>Мы оставляем за собой право в любое время:
-                            <ul>
-                                <li>Изменять функционал Бота</li>
-                                <li>Прекращать поддержку Бота</li>
-                                <li>Ограничивать доступ к Боту для отдельных серверов или пользователей</li>
-                            </ul>
-                        </li>
-                        <li>Мы постараемся уведомить вас о значительных изменениях через наш сервер поддержки.</li>
-                    </ul>
+            <!-- Premium Features -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">4. Премиум-функции</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Некоторые функции Бота доступны только для премиум-пользователей. Использование премиум-функций регулируется следующими правилами:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                Премиум-статус предоставляется на определенный срок и автоматически прекращается по его истечении.
+                            </li>
+                            <li>
+                                Мы оставляем за собой право изменять список премиум-функций без предварительного уведомления.
+                            </li>
+                            <li>
+                                Возврат средств за премиум-подписку возможен только в течение 14 дней с момента покупки при условии, что услуга не была использована.
+                            </li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p class="text-sm text-cyrillic"><strong class="text-orange-400">Идентификатор премиум-роли:</strong> <code>PREMIUM_SERVER_ID</code></p>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- 6. Контакты -->
-                <div class="terms-section">
-                    <h2 class="terms-title">6. Контакты</h2>
-                    <ul class="terms-list">
-                        <li>По всем вопросам, связанным с этими Условиями, вы можете связаться с нами:
-                            <ul>
-                                <li>Через сервер поддержки: <a href="https://discord.gg/t6d8u8JBuy" class="text-orange-400 hover:underline font-medium">Discord</a></li>
-                                <li>По электронной почте: <span class="text-orange-400 font-medium">blixplatform@gmail.com</span></li>
-                                <li>Через Telegram: <a href="https://t.me/antiraiddiscord" class="text-orange-400 hover:underline font-medium">@antiraiddiscord</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+            <!-- Limitations -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">5. Ограничения ответственности</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Бот предоставляется "как есть" без каких-либо гарантий. Мы не несем ответственности за:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                Любые прямые или косвенные убытки, возникшие в результате использования или невозможности использования Бота.
+                            </li>
+                            <li>
+                                Действия Бота, вызванные неправильной настройкой или злонамеренным использованием.
+                            </li>
+                            <li>
+                                Потерю данных или временную недоступность сервиса.
+                            </li>
+                            <li>
+                                Любые изменения в API Discord, которые могут повлиять на функциональность Бота.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Acceptance -->
-                <div class="terms-section mt-8">
-                    <div class="highlight-box">
-                        <p class="text-center font-medium">
-                            Используя Anti Raid Bot, вы подтверждаете, что прочитали, поняли и согласны с этими Условиями использования. Если вы не согласны с этими Условиями, пожалуйста, не используйте нашего Бота.
+            <!-- Modifications -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">6. Изменения и обновления</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Мы оставляем за собой право в любое время:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                Обновлять, изменять или прекращать работу Бота без предварительного уведомления.
+                            </li>
+                            <li>
+                                Вносить изменения в эти Условия. Продолжение использования Бота после внесения изменений означает ваше согласие с новыми Условиями.
+                            </li>
+                            <li>
+                                Ограничивать или блокировать доступ к Боту для отдельных пользователей или серверов по нашему усмотрению.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Termination -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">7. Прекращение использования</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Вы можете прекратить использование Бота в любое время, удалив его с вашего сервера. Мы можем прекратить предоставление услуг Бота или ограничить ваш доступ к нему:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 policy-list text-cyrillic">
+                            <li>
+                                В случае нарушения вами этих Условий.
+                            </li>
+                            <li>
+                                По техническим или юридическим причинам.
+                            </li>
+                            <li>
+                                По нашему собственному усмотрению без объяснения причин.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">8. Применимое право</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Настоящие Условия регулируются и толкуются в соответствии с законодательством Российской Федерации. Любые споры, возникающие из этих Условий, подлежат разрешению в судебных органах по месту нахождения разработчика Бота.
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <div class="version-info">
-                    Версия 1.0. Последнее обновление: 27.05.2025
+            <!-- Contact Information -->
+            <div class="policy-section">
+                <div class="policy-header">
+                    <div class="policy-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="policy-content">
+                        <h2 class="title-font text-xl font-bold mb-3 text-orange-400">9. Контактная информация</h2>
+                        <p class="text-gray-300 mb-4 text-cyrillic">
+                            Если у вас есть вопросы относительно этих Условий использования, вы можете связаться с нами следующими способами:
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Discord Contact -->
+                            <div class="contact-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fab fa-discord text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sm">Discord</h3>
+                                        <p class="text-gray-400 text-xs text-cyrillic">Официальный сервер поддержки</p>
+                                    </div>
+                                </div>
+                                <a href="https://discord.gg/t6d8u8JBuy"
+                                    class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-bold hover:bg-indigo-700 transition-all btn">
+                                    <i class="fab fa-discord mr-2"></i> Присоединиться
+                                </a>
+                            </div>
+
+                            <!-- Email Contact -->
+                            <div class="contact-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full space-gradient flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-sm">Email</h3>
+                                        <p class="text-gray-400 text-xs text-cyrillic">Для официальных запросов</p>
+                                    </div>
+                                </div>
+                                <div class="text-sm">
+                                    <code>blixplatform@gmail.com</code>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2 text-cyrillic">Ответ в течение 3 рабочих дней</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Back to Main Site -->
+            <div class="text-center mt-12">
+                <a href="https://antiraidbot.ru/"
+                    class="inline-flex items-center px-6 py-3 rounded-full space-gradient text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all btn">
+                    <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
+                </a>
             </div>
         </div>
     </main>
 
-<!-- Footer -->
-<footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
-    <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-            <!-- Логотип с аватаркой -->
-            <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                <div class="relative">
-                    <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
-                    <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+    <!-- Footer -->
+    <footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <!-- Логотип с аватаркой -->
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                        <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                    </div>
+                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
                 </div>
-                <span class="title-font text-xl font-bold gradient-text space-gradient">Anti Raid Bot</span>
+
+                <!-- Соцсети -->
+                <div class="flex space-x-4">
+                    <a href="https://discord.gg/t6d8u8JBuy" class="text-gray-400 hover:text-orange-400 transition">
+                        <i class="fab fa-discord text-lg"></i>
+                    </a>
+                    <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
+                        <i class="fab fa-telegram text-lg"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Соцсети и ссылки -->
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-400 hover:text-orange-400 transition">
-                    <i class="fab fa-discord text-lg"></i>
-                </a>
-                <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
-                    <i class="fab fa-telegram text-lg"></i>
-                </a>
-                <a href="https://antiraidbot.ru/docs" class="text-gray-400 hover:text-blue-400 transition">
-                    <span class="text-sm">Документация</span>
-                </a>
-                <a href="https://antiraidbot.ru/policy" class="text-gray-400 hover:text-blue-400 transition">
-                    <span class="text-sm">Политика конфиденциальности</span>
-                </a>
-                <a href="https://antiraidbot.ru/terms" class="text-gray-400 hover:text-blue-400 transition">
-                    <span class="text-sm">Условия использования</span>
-                </a>
+            <!-- Копирайт -->
+            <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs text-cyrillic">
+                <p>&copy; 2025 Anti Raid Bot. Все права защищены. Мы не являемся аффилированным лицом компании Discord Inc.</p>
             </div>
         </div>
-
-        <!-- Копирайт -->
-        <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs tracking-wider">
-            <p>© 2025 Anti Raid Bot. Мы не являемся аффилированным лицом компании Discord Inc.</p>
-        </div>
-    </div>
-</footer>
-
-    <!-- Floating Action Buttons -->
-    <div class="fixed bottom-4 right-4 z-50 flex flex-col space-y-3">
-        <a href="https://t.me/antiraiddiscord"
-            class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg hover:shadow-blue-500/30 transition btn">
-            <i class="fab fa-telegram"></i>
-        </a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1376482498506391673&permissions=8&integration_type=0&scope=bot"
-            class="w-12 h-12 rounded-full space-gradient flex items-center justify-center text-white shadow-lg hover:shadow-orange-500/30 transition btn">
-            <i class="fas fa-plus"></i>
-        </a>
-    </div>
+    </footer>
 
     <script>
         // Create stars
@@ -446,24 +569,6 @@
 
                 starsContainer.appendChild(star);
             }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
         });
     </script>
 </body>
