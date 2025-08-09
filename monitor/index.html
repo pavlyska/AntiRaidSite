@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti Raid Bot | Мы на мониторингах</title>
+    <meta name="keywords" content="Discord бот, защита сервера Discord, антирейд, антикраш, антислив, модерация, безопасность, бот для Discord, защита от краша, защита от сливов, защита от рейда, Discord server protection, как защитить дискорд сервер, AntiRaidBot, AntiEvilBot, бот для защиты Discord, дискорд бот защита, дискорд бот антирейд, дискорд бот антикраш, дискорд бот антислив, дискорд бот модерация, дискорд бот безопасность, защита дискорд сервера, антирейд дискорд, антикраш дискорд, антислив дискорд, модерация дискорд сервера, безопасность дискорд сервера, бот для дискорд сервера, дискорд бот для защиты сервера." />
+    <meta name="description" content="AntiRaidBot представлен на популярных мониторингах Discord ботов">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --space-orange: linear-gradient(135deg, #ff7e00 0%, #ff3c00 100%);
+            --space-dark: #0a0e17;
+            --space-light: #1a2138;
+            --discord-blurple: #5865F2;
+            --discord-dark: #36393F;
+            --discord-darker: #2F3136;
+            --discord-darkest: #202225;
+            --discord-text: #DCDDDE;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--space-dark);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .title-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .space-gradient {
+            background: var(--space-orange);
+        }
+
+        .space-card {
+            background: rgba(26, 33, 56, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .space-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 126, 0, 0.3);
+            border-color: rgba(255, 126, 0, 0.5);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: var(--opacity); }
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .monitoring-card {
+            background: rgba(26, 33, 56, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 126, 0, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .monitoring-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 126, 0, 0.3);
+            border-color: rgba(255, 126, 0, 0.5);
+        }
+
+        .monitoring-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            background: rgba(255, 126, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #ff7e00;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .monitoring-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-available {
+            background: rgba(72, 187, 120, 0.1);
+            color: #48bb78;
+            border: 1px solid rgba(72, 187, 120, 0.3);
+        }
+
+        .badge-unavailable {
+            background: rgba(245, 101, 101, 0.1);
+            color: #f56565;
+            border: 1px solid rgba(245, 101, 101, 0.3);
+        }
+
+        .text-cyrillic {
+            letter-spacing: 0.01em;
+            word-spacing: 0.05em;
+        }
+
+        .monitoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .never-appear {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .never-appear::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(245, 101, 101, 0.05),
+                rgba(245, 101, 101, 0.05) 10px,
+                rgba(245, 101, 101, 0.1) 10px,
+                rgba(245, 101, 101, 0.1) 20px
+            );
+            z-index: -1;
+        }
+
+        .crossed-out {
+            position: relative;
+            display: inline-block;
+        }
+
+        .crossed-out::before, .crossed-out::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f56565;
+            transform-origin: center;
+        }
+
+        .crossed-out::before {
+            transform: rotate(45deg);
+        }
+
+        .crossed-out::after {
+            transform: rotate(-45deg);
+        }
+    </style>
+    <link rel="apple-touch-icon" sizes="57x57" href="/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/fav/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+    <link rel="manifest" href="/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body class="min-h-screen">
+    <!-- Star Background -->
+    <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
+
+    <!-- Header -->
+    <header class="relative z-10">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center space-x-2">
+                        <!-- Аватарка с эффектом свечения -->
+                        <div class="relative">
+                            <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                            <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                        </div>
+                        <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="title-font text-4xl md:text-5xl font-bold mb-4 text-cyrillic">
+                    Мы на <span class="bg-clip-text text-transparent space-gradient">мониторингах</span>
+                </h1>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto text-cyrillic">
+                    AntiRaidBot представлен на популярных платформах для Discord ботов
+                </p>
+            </div>
+
+            <!-- Monitoring Cards -->
+            <div class="monitoring-grid">
+                <!-- Top.gg Card -->
+                <div class="monitoring-card">
+                    <div class="monitoring-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Top.gg</h3>
+                    <span class="monitoring-badge badge-available mb-4">Доступен</span>
+                    <p class="text-gray-300 mb-4 text-cyrillic">
+                        Крупнейший мониторинг Discord ботов с миллионами пользователей. Голосуйте за нас, чтобы помочь боту развиваться!
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://top.gg/bot/1376482498506391673" 
+                           class="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition btn">
+                            <i class="fab fa-discord mr-2"></i> Перейти на Top.gg
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SDC Card -->
+                <div class="monitoring-card">
+                    <div class="monitoring-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">SDC</h3>
+                    <span class="monitoring-badge badge-available mb-4">Доступен</span>
+                    <p class="text-gray-300 mb-4 text-cyrillic">
+                        Русскоязычный мониторинг Discord ботов с активным сообществом. Отличная платформа для русскоязычных пользователей.
+                    </p>
+                    <div class="mt-auto">
+                        <a href="https://bots.server-discord.com/1376482498506391673" 
+                           class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition btn">
+                            <i class="fas fa-rocket mr-2"></i> Перейти на SDC
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Boticord Card -->
+                <div class="monitoring-card never-appear">
+                    <div class="monitoring-icon">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">
+                        <span class="crossed-out text-gray-400">Boticord</span>
+                    </h3>
+                    <span class="monitoring-badge badge-unavailable mb-4">Недоступен</span>
+                    <p class="text-gray-300 mb-4 text-cyrillic">
+                        Мы принципиально не размещаем бота на этом мониторинге и никогда не будем этого делать по ряду причин которые касаются правил которые которые не работают для других ботов.
+                    </p>
+                    <div class="mt-auto">
+                        <button class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-600 text-gray-400 cursor-not-allowed btn" disabled>
+                            <i class="fas fa-ban mr-2"></i> Нет и никогда не появимся
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Back to Main Site -->
+            <div class="text-center mt-12">
+                <a href="https://antiraidbot.ru/"
+                    class="inline-flex items-center px-6 py-3 rounded-full space-gradient text-white font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all btn">
+                    <i class="fas fa-arrow-left mr-2"></i> Вернуться на главную
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 pt-12 pb-8 px-4 bg-space-light">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <!-- Логотип с аватаркой -->
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-full bg-orange-500/40 blur-sm"></div>
+                        <img src="avatar.png" alt="Логотип" class="relative w-8 h-8 rounded-full object-cover border border-white/20">
+                    </div>
+                    <span class="title-font text-xl font-bold bg-clip-text text-transparent space-gradient">Anti Raid Bot</span>
+                </div>
+
+                <!-- Соцсети -->
+                <div class="flex space-x-4">
+                    <a href="https://discord.gg/t6d8u8JBuy" class="text-gray-400 hover:text-orange-400 transition">
+                        <i class="fab fa-discord text-lg"></i>
+                    </a>
+                    <a href="https://t.me/antiraiddiscord" class="text-gray-400 hover:text-blue-400 transition">
+                        <i class="fab fa-telegram text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Копирайт -->
+            <div class="pt-6 border-t border-gray-800 text-center text-gray-500 text-xs text-cyrillic">
+                <p>&copy; 2025 Anti Raid Bot. Все права защищены. Мы не являемся аффилированным лицом компании Discord Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create stars
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars-container');
+            const starsCount = 100;
+
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = 2 + Math.random() * 5;
+                const delay = Math.random() * 5;
+                const opacity = 0.1 + Math.random() * 0.9;
+
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--opacity', opacity);
+                star.style.animationDelay = `${delay}s`;
+                star.classList.add('star');
+
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html>
